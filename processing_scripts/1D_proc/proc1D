@@ -1,0 +1,48 @@
+#!/bin/csh
+#usage mul_drx2d.com firstnumber lastnumebr
+if ($#argv > 2) then
+        echo "usage: procall  firstnumber lastnumer"
+        exit(1)
+endif
+
+if ($#argv > 0) then
+        set i = ${argv[1]}
+        if $#argv == 1 then
+         set n = ${argv[1]}
+        else
+         set n = ${argv[2]}
+        endif
+        while ($i <= $n)
+                echo "process $i/ser"
+
+bruk2pipe -in ./$i/fid \
+  -bad 0.0 -ext -aswap -AMX -decim 2496 -dspfvs 20 -grpdly 67.9842376708984  \
+  -xN              4096  \
+  -xT              2048  \
+  -xMODE            DQD  \
+  -xSW         8012.821  \
+  -xOBS         500.182  \
+  -xCAR           4.657  \
+  -xLAB              1H  \
+  -ndim               1  \
+  -out ./test.fid -verb -ov
+
+nmrPipe -in ./test.fid				\
+#| nmrPipe -fn POLY -time			\
+#| nmrPipe -fn EM -lb -2.00 -c 0.5		\
+| nmrPipe -fn SP -off 0.5 -end 0.98 -pow 2 -c 0.5\
+| nmrPipe -fn ZF -auto				\
+| nmrPipe -fn FT -auto				\
+#| nmrPipe -fn EXT -x1 11.5ppm -xn -1.0ppm -sw -round 2 \
+| nmrPipe -fn PS -p0 82.400 -p1 0.000		\
+#| nmrPipe -fn POLY -auto			\
+| nmrPipe -out ./$i/test.ft1 -ov -verb
+
+pipe2txt.tcl -index PPM -real $i/test.ft1 > $i/test_1D.txt
+
+@ i++
+
+sleep 2
+end
+endif
+
