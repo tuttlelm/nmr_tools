@@ -1,4 +1,5 @@
 ## xpk2sparky.py
+## from Damien Wilburn
 ## USAGE: python xpk2sparky.py input.xpk output.list
 ## Only works for 2D HSQC-style spectra
 ## Only exports peak positions (intensities will differ between .nv and .uscf)
