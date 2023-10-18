@@ -5,3 +5,6 @@ Reads in nmrViewJ xpk lists for CSP analysis
 
 ## [analyze_1D_NMRdata.ipynb](analyze_1D_NMRdata.ipynb)
 Reads in 1D data to analyze
+
+## [analyze_nvj_rates.ipynb](analyze_nvj_rates.ipynb)
+Reads rate analysis output from nvj and plots
