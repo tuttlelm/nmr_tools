@@ -1,3 +1,4 @@
+# updated python code to be compatible with python 3+ (print statements, etc)
 # rlc color_b.py version 8.0
 # Copyright (c) 2004 Robert L. Campbell
 # added user defined colors for 3 color ramp- Mark A. Wall
