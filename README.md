@@ -1,7 +1,7 @@
 # Various notebooks for NMR data analysis
 
 ## [read_xpks.ipynb](read_xpks.ipynb)
-Reads in nmrViewJ xpk lists for CSP analysis
+Reads in nmrViewJ xpk lists for CSP analysis<br>
 Can output to sparky format
 
 ## [analyze_1D_NMRdata.ipynb](analyze_1D_NMRdata.ipynb)
