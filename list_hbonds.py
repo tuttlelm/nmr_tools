@@ -52,8 +52,8 @@ def list_hb(selection,selection2=None,cutoff=3.2,angle=55,mode=1,hb_list_name='h
     # cmd.iterate("%s and index %s" % (pairs[0][0],pairs[0][1]), 'print ("%1s/%3s`%s/%-4s " % (chain,resn,resi,name),)')
     # cmd.iterate("%s and index %s" % (pairs[1][0],pairs[1][1]), 'print ("%1s/%3s`%s/%-4s " % (chain,resn,resi,name),)')
     # print ("%.2f" % cmd.distance(hb_list_name,"%s and index %s" % (pairs[0][0],pairs[0][1]),"%s and index %s" % (pairs[1][0],pairs[1][1])))
-    cmd.iterate("%s and index %s" % (pairs[1][0],pairs[1][1]), 'print ("%3s\t%s\t%-4s" % (resn,resi,name),end="\t")')
-    cmd.iterate("%s and index %s" % (pairs[0][0],pairs[0][1]), 'print ("%3s\t%s\t%-4s" % (resn,resi,name),end="\t",)')
+    cmd.iterate("%s and index %s" % (pairs[1][0],pairs[1][1]), 'print ("%3s\t%s\t%s" % (resn,resi,name),end="\t")')
+    cmd.iterate("%s and index %s" % (pairs[0][0],pairs[0][1]), 'print ("%3s\t%s\t%s" % (resn,resi,name),end="\t",)')
     print ("%.2f" % cmd.distance(hb_list_name,"%s and index %s" % (pairs[0][0],pairs[0][1]),"%s and index %s" % (pairs[1][0],pairs[1][1])))
 		
 cmd.extend("list_hb",list_hb)
